@@ -1,4 +1,4 @@
-%h1="#{@user.first_name} #{@user.last_name}"
+%h1=@user.full_name
 %p=@user.tagline
 
 %section
@@ -21,8 +21,8 @@
   %ul
     - @user.skills.each do |s|
       %li=s.name
-    %li="Summing from 1 to 100 in ruby ( = #{(1..100).inject(&:+)})"
-    %li="Spelling my name backward: \"#{[@user.first_name, @user.last_name].join(' ').reverse}\""
+    %li="Summing from 1 to 100 in ruby ( = #{(1..100).sum})"
+    %li="Spelling my name backward: \"#{@user.full_name.reverse}\""
 
 
 <a href="/about_me">More about me</a>
