@@ -1,0 +1,28 @@
+%h1="#{@user.first_name} #{@user.last_name}"
+%p=@user.tagline
+
+%section
+  %h2 Experience
+  - @user.positions.each do |p|
+    %article
+      %h3="#{p.title} - #{p.company}"
+      %p="#{p.date_from} to #{p.date_to||'present'}"
+      %p=p.description
+
+%section
+  %h2 Education
+  - @user.educations.each do |e|
+    %article
+      %h3="#{e.school} - #{e.degree}"
+      %p="#{e.date_from} to #{e.date_to||'present'}"
+
+%section
+  %h2 Skills
+  %ul
+    - @user.skills.each do |s|
+      %li=s.name
+    %li="Summing from 1 to 100 in ruby ( = #{(1..100).inject(&:+)})"
+    %li="Spelling my name backward: \"#{[@user.first_name, @user.last_name].join(' ').reverse}\""
+
+
+<a href="/about_me">More about me</a>
