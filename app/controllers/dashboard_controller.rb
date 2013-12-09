@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
 
   def index
     @user = User.first
-    render :error, :status => 500 if @user.nil?
+    render :error, :status => 404 if @user.nil?
   end
 
 end
